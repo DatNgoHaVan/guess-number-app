@@ -5,8 +5,11 @@ import { CustomColors } from '../constants/colors';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
 
+interface IOwnProps {
+  onStartGame(selectedNumber: number): void;
+}
 
-const StartGameScreen = (props: any) => {
+const StartGameScreen = (props: IOwnProps) => {
   const [enteredValue, setEnteredValue] = useState('');
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState(0);
@@ -38,8 +41,8 @@ const StartGameScreen = (props: any) => {
   let confirmedOutput = (
     <Card style={styles.summaryContainer}>
       <Text>Chosen Number: </Text>
-      <NumberContainer >{selectedNumber}</NumberContainer>
-      <Button title={'START GAME'} onPress={() => { }} />
+      <NumberContainer>{selectedNumber}</NumberContainer>
+      <Button title={'START GAME'} onPress={() => { props.onStartGame(selectedNumber) }} />
     </Card>
   )
 
