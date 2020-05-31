@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
 import { guessDirections } from '../constants/guessDirections';
+import defaultStyles from '../constants/default-styles';
 
 interface IOwnProps {
   userChoice: number;
@@ -58,7 +59,7 @@ const GameScreen = (props: IOwnProps) => {
 
   return (
     <View style={styles.screen}>
-      <Text>Opponent's Guess</Text>
+      <Text style={defaultStyles.title}>Opponent's Guess</Text>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
         <Button title="Lower" onPress={() => { nextGuessHandler('lower') }} />

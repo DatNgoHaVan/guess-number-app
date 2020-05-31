@@ -4,6 +4,8 @@ import Card from '../components/Card';
 import { CustomColors } from '../constants/colors';
 import Input from '../components/Input';
 import NumberContainer from '../components/NumberContainer';
+import BodyText from '../components/BodyText';
+import TitleText from '../components/TitleText';
 
 interface IOwnProps {
   onStartGame(selectedNumber: number): void;
@@ -40,7 +42,7 @@ const StartGameScreen = (props: IOwnProps) => {
 
   let confirmedOutput = (
     <Card style={styles.summaryContainer}>
-      <Text>Chosen Number: </Text>
+      <BodyText>Chosen Number: </BodyText>
       <NumberContainer>{selectedNumber}</NumberContainer>
       <Button title={'START GAME'} onPress={() => { props.onStartGame(selectedNumber) }} />
     </Card>
@@ -49,9 +51,9 @@ const StartGameScreen = (props: IOwnProps) => {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.screen}>
-        <Text style={styles.title}>The battle begins!</Text>
+        <TitleText style={styles.title}>The battle begins!</TitleText>
         <Card style={styles.inputContainer}>
-          <Text>Select a number</Text>
+          <BodyText>Select a number</BodyText>
           <Input
             style={styles.input}
             blurOnSubmit
