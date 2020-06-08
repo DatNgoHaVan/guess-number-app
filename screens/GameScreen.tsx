@@ -1,9 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import { StyleSheet, Text, View, Alert } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+
 import NumberContainer from '../components/NumberContainer';
 import Card from '../components/Card';
 import { guessDirections } from '../constants/guessDirections';
 import defaultStyles from '../constants/default-styles';
+import MainButton from '../components/MainButton';
 
 interface IOwnProps {
   userChoice: number;
@@ -62,8 +65,12 @@ const GameScreen = (props: IOwnProps) => {
       <Text style={defaultStyles.title}>Opponent's Guess</Text>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
-        <Button title="Lower" onPress={() => { nextGuessHandler('lower') }} />
-        <Button title="Higher" onPress={() => { nextGuessHandler('higher') }} />
+        <MainButton onPress={() => { nextGuessHandler('lower') }} >
+          <Ionicons name="md-remove" size={24} color="white" />
+        </MainButton>
+        <MainButton onPress={() => { nextGuessHandler('higher') }} >
+          <Ionicons name="md-add" size={24} color="white" />
+        </MainButton>
       </Card>
     </View>
   )
