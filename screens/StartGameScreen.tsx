@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Button, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
+import { StyleSheet, Text, View, Button, TouchableWithoutFeedback, Keyboard, Alert, Dimensions } from 'react-native';
 import Card from '../components/Card';
 import { CustomColors } from '../constants/colors';
 import Input from '../components/Input';
@@ -110,7 +110,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15
   },
   button: {
-    width: 100
+    //similar with 40%
+    width: Dimensions.get('window').width / 4,
   },
   input: {
     width: 50,
